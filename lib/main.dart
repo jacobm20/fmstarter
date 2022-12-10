@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Startup Name Generator',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Startup Name Generator'),
+          title: const Text('The Flutter 3.x Test Drive'),
         ),
         body: const Center(
           child: RandomWords(),
