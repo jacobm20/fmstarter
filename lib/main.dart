@@ -8,9 +8,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       // MODIFY with const
       title: 'Startup Name Generator',
+      theme:  ThemeData(
+        // Add the 5 lines from here...
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.greenAccent,
+          foregroundColor: Colors.black,
+        ),
+      ),
       home: RandomWords(), // REMOVE Scaffold
     );
   }
@@ -84,7 +91,7 @@ class _RandomWordsState extends State<RandomWords> {
       MaterialPageRoute<void>(
         builder: (context) {
           final tiles = _saved.map(
-                (pair) {
+            (pair) {
               return ListTile(
                 title: Text(
                   pair.asPascalCase,
@@ -95,9 +102,9 @@ class _RandomWordsState extends State<RandomWords> {
           );
           final divided = tiles.isNotEmpty
               ? ListTile.divideTiles(
-            context: context,
-            tiles: tiles,
-          ).toList()
+                  context: context,
+                  tiles: tiles,
+                ).toList()
               : <Widget>[];
 
           return Scaffold(
@@ -110,5 +117,4 @@ class _RandomWordsState extends State<RandomWords> {
       ), // ...to here.
     );
   }
-
 }
